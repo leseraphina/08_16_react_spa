@@ -1,0 +1,36 @@
+#product{
+  width:1000px;
+  margin: 0 auto 25px;
+  padding:20px;
+  box-sizing: border-box;
+}
+#product>h1{
+  font-size:1.5em;
+  margin-bottom:25px;}
+#product>form{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom:25px;
+}
+#product>form>input{
+  width:80%;
+  border: none;
+  line-height:30px;
+  box-sizing: border-box;
+}
+#product>form>button{
+  width:20%;
+  border:none;
+  background-color: #333;
+  color:#fff;
+  box-sizing: border-box;
+
+}
+#product .container{
+  padding:10px;
+}
+
+#product .container>div{
+  display:flex;
+  flex-wrap: wrap;
+}
