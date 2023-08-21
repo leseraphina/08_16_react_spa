@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './ProductItem.css';
 
 export default function ProductItem({course}){
@@ -6,8 +7,14 @@ export default function ProductItem({course}){
       <img src={course.photoUrl} alt={course.title} />
         <figcaption>
           <dl>
-            <dt>{course.title}</dt>
-            <dd>{course.summary}</dd>
+            <dt>
+              <Link to={`/list/${course.slug}`} >
+              {course.title}
+              </Link>
+              </dt>
+            <dd>
+              {course.summary}
+              </dd>
           </dl>
         </figcaption>
     

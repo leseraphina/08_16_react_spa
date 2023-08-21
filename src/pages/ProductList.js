@@ -1,14 +1,30 @@
 import ProductItem from "../components/ProductItem";
 import './ProductList.css';
 import { getCourses } from "../api/api";
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export default function ProductList(){
-  const courses = getCourses();
-  console.log(courses);
+const [searchParam,setSearchParam] = useSearchParams();
+const initKeyword = searchParam.get('keyword');
+// console.log(initKeyword);
+ const [keyword, setKeyword] = useState(initKeyword || '');
+  const courses = getCourses(initKeyword);
+  // console.log(courses);
+
+  const hangelKeywordChange = (e) => setKeyword(e.target.value);
+  const handSubmit = (e) => {
+    e.preventDefault();
+    setSearchParam(keyword ? {keyword} : {})
+  }
+
   return (
     <div id="product">
-      <form>
-        <input type="text" placeholder="검색으로 상품찾기" />
+      <form onSubmit={handSubmit}>
+        <input 
+          type="text" 
+          placeholder="검색으로 상품찾기"
+          onChange = {hangelKeywordChange} />
         <button type="submit">검색</button>
       </form>
       <div className="container">
